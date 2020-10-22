@@ -1,0 +1,20 @@
+Vilken version är bättre?
+Varför? 
+
+Vi anser att våran version är bättre sett till hur programmet exekverar. 
+Programmet hämtar en kollision genom att ta bort det första elementen i prioritetskön och hämta dess information.
+När programmet hämtar det första elementet så undersöks huruvida prioritetskön är sorterad, vilket den nästan alltid inte är, 
+och genomför en sortering för att sedan kunna hämta rätt element vilket tar O(n) tid.
+Problematiken är att toss() som sätter in element i kön bara stoppar in på första lediga plats utan att sortera vidare.
+
+Vår version har implementerat insert() som metod vilket stoppar in ett element på första ledig plats och sedan direkt återställer heap-egenskapen, 
+vilket tar O(log n) tid. När huvudprogrammet ska hämta det första elementet i prioritetskön blir det alltid korrekt element vilket gör processen mycket snabbare O(1).
+Eftersom insert() och delete() används ungefär lika många gånger under programmets körning resulteras det i att vår version är bättre.
+
+Finns det fall då den “sämre” implementationen är bättre än den du valde ut?
+
+Om programmet endast skulle utföra i många fler inserts än delete, skulle den sämre implementationen kunna vara bättre. 
+Detta för att prioritetskön sorteras efter varje insättning snarare än att hela listan sorteras efter en delete. 
+Den största skillnaden mellan vår implementation och den gamla är att insättning tar O(log n) och delete tar konstant tid 0(1), jämfört med tidigare där insättning tog konstant tid O(1) och borttagning O(n). 
+Det som avgör vilken implementation som är bättre är alltså hur många deletes och insert som programmet kräver.
+

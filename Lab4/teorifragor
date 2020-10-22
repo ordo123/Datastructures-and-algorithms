@@ -1,0 +1,10 @@
+Contains jämför söknyckeln med respektive element i Vector-listan och returnerar nyckeln som stämmer överens med söknyckeln. 
+I värsta fall behöver contains traversera genom hela listan utan att hitta det som eftersöks, vilket ger oss 0(n) för en lista med n element. 
+
+List fylls på med samtliga ord som matas in i programmet och används via metoden contains för att se om specifika ord finns i listan eller inte. 
+Used fylls på med ”besökta noder” vid breddenförstsökningen för att undvika dubbelarbete. 
+
+Det är bra att vi använder Vector klassen då denna är flexibel i storlek (vi vet tex inte hur många element som kommer att stoppas in i Used på förhand, 
+eller hur många inmatningar programmet får att stoppa in i List). 
+
+Vi har valt att ersätta Vector med en HashSet, detta för att HashSet har konstant tid O(1) för metoderna add, contains, equals och size.
